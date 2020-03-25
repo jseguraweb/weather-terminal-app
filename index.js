@@ -75,7 +75,7 @@ const fetchData = async (arg1, arg2) => {
                 const countriesFound = arrayOfCountries.filter((item, i) => arrayOfCountries.indexOf(item) === i)
 
                 console.log(`
-                            I have found ${city} in these countries: ${countriesFound}
+                            I have found ${capitalizeInitial(city)} in these countries: ${countriesFound}
                         `);
 
             }
