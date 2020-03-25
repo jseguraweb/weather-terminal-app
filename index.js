@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const args = process.argv.slice(2)
-
+const chalk = require('chalk');
 const fetch = require('node-fetch')
 
 const toCelsius = kelvin => Math.round(kelvin - 273.15)
@@ -37,12 +37,12 @@ const fetchData = async (arg1, arg2) => {
             const hum = stats[5]
 
             console.log(`
-                * City:               ${state}
-                * Country:            ${nation}
-                * Temperature:        ${temp}°C
-                * Max. Temperature:   ${maxTemp}°C
-                * Min. Temperature:   ${minTemp}°C
-                * Humidity:           ${hum}%
+                    ${chalk.hex('#c7c7c7')('City:')}            ${chalk.yellow(state)}
+                    ${chalk.hex('#c7c7c7')('Country:')}         ${chalk.hex('#d17f21')(nation)}
+                    ${chalk.hex('#c7c7c7')('Temperature:')}     ${temp <= 0 ? chalk.cyan(`${temp}°C`) : temp <= 25 ? chalk.green(`${temp}°C`) : chalk.red(`${temp}°C`)}
+                    ${chalk.hex('#c7c7c7')('Max Temp:')}        ${maxTemp <= 0 ? chalk.cyan(`${maxTemp}°C`) : maxTemp <= 25 ? chalk.green(`${maxTemp}°C`) : chalk.red(`${maxTemp}°C`)}
+                    ${chalk.hex('#c7c7c7')('Min Temp:')}        ${minTemp <= 0 ? chalk.cyan(`${minTemp}°C`) : minTemp <= 25 ? chalk.green(`${minTemp}°C`) : chalk.red(`${minTemp}°C`)}
+                    ${chalk.hex('#c7c7c7')('Humidity:')}        ${chalk.hex('#aa6de8')(`${hum}%`)}
                 `);
 
         } else if (data.count > 1) {
@@ -60,12 +60,12 @@ const fetchData = async (arg1, arg2) => {
                 const hum = stats[5]
 
                 console.log(`
-                * City:               ${state}
-                * Country:            ${nation}
-                * Temperature:        ${temp}°C
-                * Max. Temperature:   ${maxTemp}°C
-                * Min. Temperature:   ${minTemp}°C
-                * Humidity:           ${hum}%
+                    ${chalk.hex('#c7c7c7')('City:')}            ${chalk.yellow(state)}
+                    ${chalk.hex('#c7c7c7')('Country:')}         ${chalk.hex('#d17f21')(nation)}
+                    ${chalk.hex('#c7c7c7')('Temperature:')}     ${temp <= 0 ? chalk.cyan(`${temp}°C`) : temp <= 25 ? chalk.green(`${temp}°C`) : chalk.red(`${temp}°C`)}
+                    ${chalk.hex('#c7c7c7')('Max Temp:')}        ${maxTemp <= 0 ? chalk.cyan(`${maxTemp}°C`) : maxTemp <= 25 ? chalk.green(`${maxTemp}°C`) : chalk.red(`${maxTemp}°C`)}
+                    ${chalk.hex('#c7c7c7')('Min Temp:')}        ${minTemp <= 0 ? chalk.cyan(`${minTemp}°C`) : minTemp <= 25 ? chalk.green(`${minTemp}°C`) : chalk.red(`${minTemp}°C`)}
+                    ${chalk.hex('#c7c7c7')('Humidity:')}        ${chalk.hex('#aa6de8')(`${hum}%`)}
                 `);
 
             } else {
