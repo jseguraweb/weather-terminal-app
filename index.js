@@ -70,8 +70,9 @@ const fetchData = async (arg1, arg2) => {
 
             } else {
 
-                const stats = data.list.map(city => Object.values(city.sys))
-                const countriesFound = stats.join(', ')
+                const arrayOfArrays = data.list.map(city => Object.values(city.sys))
+                const arrayOfCountries = arrayOfArrays.map(el => el.toString())
+                const countriesFound = arrayOfCountries.filter((item, i) => arrayOfCountries.indexOf(item) === i)
 
                 console.log(`
                             I have found ${city} in these countries: ${countriesFound}
