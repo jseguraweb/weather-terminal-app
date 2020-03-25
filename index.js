@@ -32,8 +32,8 @@ const fetchData = async (arg1, arg2) => {
             const state = stats[0]
             const nation = stats[1]
             const temp = stats[2]
-            const maxTemp = stats[3]
-            const minTemp = stats[4]
+            const minTemp = stats[3]
+            const maxTemp = stats[4]
             const hum = stats[5]
 
             console.log(`
@@ -55,8 +55,8 @@ const fetchData = async (arg1, arg2) => {
                 const state = stats[0]
                 const nation = stats[1]
                 const temp = stats[2]
-                const maxTemp = stats[3]
-                const minTemp = stats[4]
+                const minTemp = stats[3]
+                const maxTemp = stats[4]
                 const hum = stats[5]
 
                 console.log(`
