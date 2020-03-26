@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 
-const args = process.argv.slice(2);
+require('dotenv').config()
+
+const [arg1, arg2] = process.argv.slice(2);
 
 (getWeather = async (arg1, arg2) => {
-
-    require('dotenv').config()
-    const apiHost = process.env.API_HOST
-    const apiKey = process.env.API_KEY
 
     const chalk = require('chalk');
     const fetch = require('node-fetch')
@@ -23,8 +21,8 @@ const args = process.argv.slice(2);
         const response = await fetch(`https://community-open-weather-map.p.rapidapi.com/find?type=link%252C%20accurate&units=imperial%252C%20metric&q=${city}`, {
             "method": "GET",
             "headers": {
-                "x-rapidapi-host": apiHost,
-                "x-rapidapi-key": apiKey
+                "x-rapidapi-host": process.env.API_HOST,
+                "x-rapidapi-key": process.env.API_KEY
             }
         });
 
@@ -86,7 +84,7 @@ const args = process.argv.slice(2);
             }
 
         } else {
-
+            console.log('ARG1', arg1, 'ARG1', arg2);
             console.log(`Sorry, I can't find ${capitalizeInitial(city)}`)
 
         }
@@ -96,4 +94,4 @@ const args = process.argv.slice(2);
         console.log(error);
 
     }
-})(...args);
+})(arg1, arg2);

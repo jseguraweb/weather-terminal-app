@@ -8,11 +8,7 @@
 ## Install
 
 ```
-$ npm install weather-terminal-app
-```
-Then connect the terminal with the application:
-```
-$ npm link
+$ npm install weather-terminal-app -g
 ```
 
 
@@ -46,4 +42,4 @@ $ madrid es
 
 ## About
 
-This app fetches data from the API Open Weather Map in a free basic plan. It means that there is a limit of 100 requests/day and 10 requests/minute.
+This app can be installed globally to receive the information directly in the terminal. The app fetches data from the API Open Weather Map in a free basic plan. It means that there is a limit of 100 requests/day and 10 requests/minute.
