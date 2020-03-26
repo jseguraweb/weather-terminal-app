@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+require('dotenv').config()
+const apiHost = process.env.API_HOST
+const apiKey = process.env.API_KEY
+
 const args = process.argv.slice(2)
 const chalk = require('chalk');
 const fetch = require('node-fetch')
@@ -18,8 +22,8 @@ const fetchData = async (arg1, arg2) => {
         const response = await fetch(`https://community-open-weather-map.p.rapidapi.com/find?type=link%252C%20accurate&units=imperial%252C%20metric&q=${city}`, {
             "method": "GET",
             "headers": {
-                "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
-                "x-rapidapi-key": "ed00fcb69dmsh67123677c95871cp1544abjsn90b6a0b9e599"
+                "x-rapidapi-host": apiHost,
+                "x-rapidapi-key": apiKey
             }
         });
 
