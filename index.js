@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 
-require('dotenv').config()
-const apiHost = process.env.API_HOST
-const apiKey = process.env.API_KEY
+const args = process.argv.slice(2);
 
-const args = process.argv.slice(2)
-const chalk = require('chalk');
-const fetch = require('node-fetch')
+(getWeather = async (arg1, arg2) => {
 
-const toCelsius = kelvin => Math.round(kelvin - 273.15)
-const formatString = string => string.trim().replace(/\s+/g, ' ').toLocaleLowerCase()
-const capitalizeInitial = string => string.split(' ').map(word => word.charAt(0).toLocaleUpperCase().concat(word.substring(1).toLocaleLowerCase())).join(' ')
+    require('dotenv').config()
+    const apiHost = process.env.API_HOST
+    const apiKey = process.env.API_KEY
 
-const fetchData = async (arg1, arg2) => {
+    const chalk = require('chalk');
+    const fetch = require('node-fetch')
+
+    const toCelsius = kelvin => Math.round(kelvin - 273.15)
+    const formatString = string => string.trim().replace(/\s+/g, ' ').toLocaleLowerCase()
+    const capitalizeInitial = string => string.split(' ').map(word => word.charAt(0).toLocaleUpperCase().concat(word.substring(1).toLocaleLowerCase())).join(' ')
 
     let city = formatString(arg1);
     let country;
@@ -95,6 +96,4 @@ const fetchData = async (arg1, arg2) => {
         console.log(error);
 
     }
-}
-
-fetchData(...args)
+})(...args);
