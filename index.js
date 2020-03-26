@@ -84,7 +84,7 @@ const [arg1, arg2] = process.argv.slice(2);
             }
 
         } else {
-            console.log('ARG1', arg1, 'ARG1', arg2);
+
             console.log(`Sorry, I can't find ${capitalizeInitial(city)}`)
 
         }
